@@ -8,9 +8,15 @@ const pubDir = `${__dirname}/public`;
 const io = require('socket.io')(http);
 const path = require('path');
 const WebSocket = require('ws');
+const Session = require('express-session');
+const middleware = require('connect-ensure-login');
+const FileStore = require('session-file-store');
+const flash = require('connect-flash');
+const fs = require('fs');
 
 const userRoutes = require('./server/routes/users');
 const courseRoutes = require('./server/routes/courses');
+const docsRoutes = require('./server/routes/docs');
 
 io.on('connection', (socket) => {
     socket.on('stream', (image) => {
@@ -42,6 +48,7 @@ app.use((res, req, next) => {
 
 app.use('/api/users', userRoutes);
 app.use('/api/courses', courseRoutes);
+app.use('/api/docs', docsRoutes);
 
 app.use((res, req, next) => {
   const error = new Error('Not found');
