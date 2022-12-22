@@ -24,7 +24,7 @@
     "express-session": "^1.17.0",
     "express-validator": "^6.4.0",
     "fs": "0.0.1-security",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "livecam": "^0.2.0",
     "log": "^6.0.0",
     "mongoose": "^5.9.4",
